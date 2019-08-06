@@ -7,11 +7,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class Servlet12 extends HttpServlet {
+@WebServlet("/add")
+public class ServletGet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.getWriter().append(request.getRemoteAddr());
-        response.getWriter().append(request.getHeader("User-Agent"));
-        response.getWriter().append("servlet12");
+//        http://localhost:8080/add?a=345&b=796
+        int a = Integer.parseInt(request.getParameter("a"));
+        int b = Integer.parseInt(request.getParameter("b"));
+        response.getWriter().append("sum: = ");
+        response.getWriter().append(a + b + "");
+
     }
 }
